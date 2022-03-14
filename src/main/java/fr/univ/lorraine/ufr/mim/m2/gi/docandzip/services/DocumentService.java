@@ -31,15 +31,11 @@ public class DocumentService  {
         return repository.save(document);
     }
 
-    public Document update(Long id, Document document) {
+    public boolean delete(Long id) {
         if(repository.findById(id).isPresent()) {
-            document.setDocumentId(id);
-            return repository.save(document);
+            repository.delete(repository.getById(id));
+            return true;
         }
-        return null;
-    }
-
-    public void delete(Long id) {
-        repository.delete(repository.getById(id));
+        return false;
     }
 }

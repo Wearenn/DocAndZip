@@ -27,6 +27,13 @@ public class Document {
 
     public Document() {}
 
+    public Document(Long documentId, String nom, String chemin, Date dateAjout) {
+        this.documentId = documentId;
+        this.nom = nom;
+        this.chemin = chemin;
+        this.dateAjout = dateAjout;
+    }
+
     public Long getDocumentId() {
         return documentId;
     }

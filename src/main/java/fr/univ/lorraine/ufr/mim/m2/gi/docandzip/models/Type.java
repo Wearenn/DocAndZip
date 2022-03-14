@@ -20,6 +20,12 @@ public class Type {
 
     public Type() {}
 
+    public Type(Long typeId, String type) {
+        this.typeId = typeId;
+        this.type = type;
+        this.documents = new ArrayList<>();
+    }
+
     public Long getTypeId() {
         return typeId;
     }
@@ -42,5 +48,18 @@ public class Type {
 
     public void setDocuments(List<Document> documents) {
         this.documents = documents;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Type)) return false;
+        Type type1 = (Type) o;
+        return Objects.equals(getTypeId(), type1.getTypeId()) && Objects.equals(getType(), type1.getType()) && Objects.equals(getDocuments(), type1.getDocuments());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getTypeId(), getType(), getDocuments());
     }
 }
